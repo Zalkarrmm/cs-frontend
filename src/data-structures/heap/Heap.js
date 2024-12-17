@@ -119,7 +119,7 @@ export default class Heap {
         return this
     }
 
-    find(item, comparator = this.compare){
+    find(item, comparator = this.compare){ // returns indexes of searching elements
         const incides = []
 
         for(let i = 0; i < this.heapContainer.length; i += 1){
@@ -128,7 +128,7 @@ export default class Heap {
             }
         }
 
-        return incides
+        return incides 
     }
 
     swap(indexOne, indexTwo){ // switch the places
@@ -139,46 +139,46 @@ export default class Heap {
     }
 
     heapifyUp(customStartIndex){
-        let currentIndex = customStartIndex || this.heapContainer.length - 1
-
+      let currentIndex = customStartIndex || this.heapContainer.length - 1
+    
         while(
-            this.hasParent(currentIndex) && 
-            !this.pairIsInCorrectOrder(
+        this.hasParent(currentIndex) &&
+        !this.pairIsInCorrectOrder(
                 this.parent(currentIndex), this.heapContainer[currentIndex]
-            )
+        )
         ){
-            this.swap(currentIndex, this.getParentIndex(currentIndex))
-            currentIndex = this.getParentIndex(currentIndex)
-        }
+        this.swap(currentIndex, this.getParentIndex(currentIndex))
+        currentIndex = this.getParentIndex(currentIndex)
+      }
     }
 
     heapifyDown(customStartIndex = 0){
-        let currentIndex = customStartIndex
-        let nextIndex = null
-
+      let currentIndex = customStartIndex
+      let nextIndex = null
+    
         while(this.hasLeftChild(currentIndex)){
             if(
-                this.hasRightChild(currentIndex) &&
-                this.pairIsInCorrectOrder(
-                    this.rightChild(currentIndex),
+          this.hasRightChild(currentIndex) &&
+          this.pairIsInCorrectOrder(
+            this.rightChild(currentIndex),
                     this.leftChild(currentIndex)
-                )
+          )
             ){
-                nextIndex = this.getRightChildIndex(currentIndex)
-            } else {
-                nextIndex = this.getLeftChildIndex(currentIndex)
-            }
-
+          nextIndex = this.getRightChildIndex(currentIndex)
+        } else {
+          nextIndex = this.getLeftChildIndex(currentIndex)
+        }
+    
             if(this.pairIsInCorrectOrder(
-                this.heapContainer[currentIndex],
+            this.heapContainer[currentIndex],
                 this.heapContainer[nextIndex]
             )){
                 break;
-            }
-
-            this.swap(currentIndex, nextIndex)
-            currentIndex.nextIndex
         }
+    
+        this.swap(currentIndex, nextIndex)
+        currentIndex = nextIndex
+      }
 
 
     }

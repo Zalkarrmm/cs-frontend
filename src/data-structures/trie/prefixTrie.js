@@ -44,7 +44,7 @@ export default class PrefixTrie {
     return this
   }
 
-  suggestNextCharacter(word){
+  suggestNextCharacters(word){
     const lastChar = this.getLastCharNode(word)
 
     if(!lastChar) {

@@ -1,4 +1,3 @@
-import { isNamedExports } from "typescript";
 import LinkedList from "../linked-list/LinkedList";
 
 const defaultHashTableSize = 32

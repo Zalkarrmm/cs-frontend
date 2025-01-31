@@ -1,8 +1,8 @@
-import HashTable from '../hash-table/HashTable'
+import HashTable  from "../hash-table/HashTable.js"
 
 export const HEAD_CHARACTER = '*'
 
-export default class Node {
+export default class TrieNode {
   constructor (char, isCompleteWord = false) {
     this.char = char // the main info of done is char
 
@@ -12,7 +12,7 @@ export default class Node {
   }
 
   addChild(char, isCompleteWord = false){
-    if(!isCompleteWord){
+    if (!this.hasChild(char)) {
       this.children.set(char, new Node(char, isCompleteWord))
     }
 
@@ -37,7 +37,7 @@ export default class Node {
     return this.children.get(char)
   }
 
-  hasChildren(char) {
+  hasChild(char) {
     return this.children.has(char)
   }
 

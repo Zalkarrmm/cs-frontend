@@ -11,7 +11,7 @@ export default class TrieNode {
 
   addChild(char, isCompleteWord = false){
     if (!this.hasChild(char)) {
-      this.children.set(char, new Node(char, isCompleteWord))
+      this.children.set(char, new TrieNode(char, isCompleteWord))
     }
 
     const node = this.getChild(char)

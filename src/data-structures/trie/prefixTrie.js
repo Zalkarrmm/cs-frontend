@@ -54,7 +54,7 @@ export default class PrefixTrie {
     return lastChar.suggestChildren()
   }
 
-  doestWordExist(word){
+  doesWordExist(word){
     const lastChar = this.getLastCharNode(word)
 
     return Boolean(lastChar) && lastChar.isCompleteWord

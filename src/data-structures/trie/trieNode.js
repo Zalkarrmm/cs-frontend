@@ -1,14 +1,12 @@
-import HashTable  from "../hash-table/HashTable.js"
+import HashTable  from "../hash-table/HashTable"
 
 export const HEAD_CHARACTER = '*'
 
 export default class TrieNode {
-  constructor (char, isCompleteWord = false) {
-    this.char = char // the main info of done is char
-
-    this.isCompleteWord = isCompleteWord // indicator of finishing letter - boolean
-
-    this.children = new HashTable() // hash table for children
+  constructor(char, isCompleteWord = false) {
+    this.char = char
+    this.isCompleteWord = isCompleteWord
+    this.children = new HashTable()
   }
 
   addChild(char, isCompleteWord = false){
